@@ -21,6 +21,7 @@ body {
     position: relative;
     height: 100vh;
     font-weight: 400;
+    letter-spacing: 2pt;
 }
 
 .right { float: right; }
@@ -33,7 +34,7 @@ body {
 
 .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(back.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -49,10 +50,11 @@ body {
 }
 
 .budget__title {
-    font-size: 18px;
+    font-size: 18pt;
+    font-family: sans-serif;
+    font-weight: 900;
     text-align: center;
     margin-bottom: 10px;
-    font-weight: 300;
 }
 
 .budget__value {
@@ -60,7 +62,7 @@ body {
     font-size: 46px;
     text-align: center;
     margin-bottom: 25px;
-    letter-spacing: 2px;
+    /* letter-spacing: 50px; */
 }
 
 .budget__income,
@@ -261,7 +263,7 @@ h2 {
 .item__delete--btn:focus { outline: none; }
 .item__delete--btn:active { transform: translateY(2px); }
 
-.item:hover .item__delete--btn { display: block; }
+.item__delete--btn { display: block; }
 .item:hover .item__value { transform: translateX(-20px); }
 .item:hover .item__percentage { transform: translateX(-20px); }
 

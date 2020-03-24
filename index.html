@@ -5,11 +5,11 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="style.css">
-        <title>Budgety</title>
+        <title>BudgetTool</title>
     </head>
     <body>
         
-        <div class="top">
+        <div class="top" aria-label="background-money-image">
             <div class="budget">
                 <div class="budget__title">
                     Available Budget in <span class="budget__title--month">%Month%</span>:
@@ -46,7 +46,7 @@
                     </select>
                     <input type="text" class="add__description" placeholder="Add description">
                     <input type="number" class="add__value" placeholder="Value">
-                    <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+                    <button class="add__btn" aria-label="add-income-entry"><i class="ion-ios-checkmark-outline"></i></button>
                 </div>
             </div>
             
@@ -56,7 +56,7 @@
                     
                     <div class="income__list">
                        
-                        <!--
+<!--                         
                         <div class="item clearfix" id="income-0">
                             <div class="item__description">Salary</div>
                             <div class="right clearfix">

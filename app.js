@@ -240,11 +240,11 @@ var UIController = (function() {
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
                 
-                html = '<div class="item clearfix" id="inc-%id%"> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%" aria-label="Income-Entry"> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button type="button" aria-label="delete-entry-button" class="item__delete--btn" tabindex="0"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp') {
                 element = DOMstrings.expensesContainer;
                 
-                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="exp-%id%" aria-label="Expense-Entry"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button aria-label="delete-entry-button" class="item__delete--btn" tabindex="0"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
             
             // Replace the placeholder text with some actual data
@@ -339,7 +339,12 @@ var UIController = (function() {
             });
             
             document.querySelector(DOMstrings.inputBtn).classList.toggle('red');
-            
+
+            if (document.querySelector(DOMstrings.inputBtn).getAttribute("aria-label") == "add-income-entry") {
+                document.querySelector(DOMstrings.inputBtn).setAttribute("aria-label", "add-expense-entry");
+            } else {
+                document.querySelector(DOMstrings.inputBtn).setAttribute("aria-label", "add-income-entry");
+            }
         },
         
         
@@ -361,11 +366,11 @@ var controller = (function(budgetCtrl, UICtrl) {
         
         document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
-        document.addEventListener('keypress', function(event) {
-            if (event.keyCode === 13 || event.which === 13) {
-                ctrlAddItem();
-            }
-        });
+        // document.addEventListener('keypress', function(event) {
+        //     if (event.keyCode === 13 || event.which === 13) {
+        //         ctrlAddItem();
+        //     }
+        // });
         
         document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
         
@@ -420,6 +425,8 @@ var controller = (function(budgetCtrl, UICtrl) {
             
             // 6. Calculate and update percentages
             updatePercentages();
+        } else {
+            alert("Please enter both a label and value!");
         }
     };
     
